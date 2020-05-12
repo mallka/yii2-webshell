@@ -11,17 +11,22 @@ use yii\web\AssetBundle;
  */
 class JqueryTerminalAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/jquery.terminal';
 
     public $js = [
-        'js/jquery.terminal-min.js',
+        'jquery.terminal/js/jquery.terminal-min.js',
     ];
 
     public $css = [
-        'css/jquery.terminal.css',
+        'jquery.terminal/css/jquery.terminal.css',
     ];
 
     public $depends = [
         'yii\web\JqueryAsset',
     ];
+
+	public function init()
+	{
+		$this->sourcePath = __DIR__ . '/assets';
+		parent::init();
+	}
 }

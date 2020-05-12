@@ -10,7 +10,6 @@ use yii\web\AssetBundle;
  */
 class WebshellAsset extends AssetBundle
 {
-    public $sourcePath = '@samdark/webshell/assets';
 
     public $css = [
         'webshell.css',
@@ -19,4 +18,10 @@ class WebshellAsset extends AssetBundle
     public $depends = [
         'samdark\webshell\JqueryTerminalAsset',
     ];
+
+	public function init()
+	{
+		$this->sourcePath = __DIR__ . '/assets';
+		parent::init();
+	}
 }
