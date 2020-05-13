@@ -23,13 +23,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist samdark/yii2-webshell "~2.0"
+php composer.phar require --prefer-dist mallka/yii2-webshell "dev-master"
 ```
 
 or add
 
 ```
-"samdark/yii2-webshell": "~2.0"
+"mallka/yii2-webshell": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
