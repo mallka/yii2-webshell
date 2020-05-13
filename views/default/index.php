@@ -1,18 +1,18 @@
 <?php
-/** @var $this yii\web\View */
-/** @var $quitUrl string */
-/** @var $greetings string */
-use yii\helpers\Url;
+	/** @var $this yii\web\View */
+	/** @var $quitUrl string */
+	/** @var $greetings string */
+	use yii\helpers\Url;
 
-\mallka\webshell\WebshellAsset::register($this);
-\mallka\webshell\JqueryTerminalAsset::register($this);
+	\mallka\webshell\WebshellAsset::register($this);
+	\mallka\webshell\JqueryTerminalAsset::register($this);
 
-$endpoint = Url::toRoute(['default/rpc']);
+	$endpoint = Url::toRoute(['default/rpc']);
 
-$this->title = $greetings;
+	$this->title = $greetings;
 
-$this->registerJs(
-<<<JS
+	$this->registerJs(
+		<<<JS
 jQuery(function($) {
     var webshell = $('#webshell');
 
@@ -43,7 +43,8 @@ jQuery(function($) {
                 }
             } else {
                 
-                 $.jrpc('{$endpoint}', command, '', function(json) {
+                // alert(command.replace(/^\w+ ?/, ''));
+                 $.jrpc('{$endpoint}', command, [command.replace(/^\w+ ?/, '')], function(json) {
                         term.echo(json.result);
                         scrollDown();
                     });
@@ -69,6 +70,6 @@ jQuery(function($) {
     }
 });
 JS
-);
+	);
 ?>
 <div id="webshell"></div>
