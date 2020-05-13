@@ -43,7 +43,7 @@ jQuery(function($) {
                 }
             } else {
                 
-                alert(command.replace(/^\w+ ?/, ''));
+                // alert(command.replace(/^\w+ ?/, ''));
                  $.jrpc('{$endpoint}', command, [command.replace(/^\w+ ?/, '')], function(json) {
                         term.echo(json.result);
                         scrollDown();

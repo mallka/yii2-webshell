@@ -52,6 +52,11 @@ class Module extends \yii\base\Module
 	 */
     public $unlimit=true;
 
+	/**
+	 * @var array
+	 */
+    public $unsupportCommands=['top','ping','tracert'];
+
     /**
      * @var array the list of IPs that are allowed to access this module.
      * Each array element represents a single IP filter which can be either an IP address
