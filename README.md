@@ -1,3 +1,13 @@
+**Notice:the package  forked from samdark/yii2-webshell** 
+
+What we change 
+=================
+1. allow to run other console command
+2. move the jquery.terminal into asset folder due to bower floder is different(since some date) 
+3. changed sourcepath of Asset Class, then I don't need to set Alias config anymore.
+
+
+
 Yii 2.0 web shell
 =================
 
@@ -34,7 +44,7 @@ To use web shell, include it as a module in the application configuration like t
 return [
     'modules' => [
         'webshell' => [
-            'class' => 'samdark\webshell\Module',
+            'class' => 'mallka\webshell\Module',
             // 'yiiScript' => Yii::getAlias('@root'). '/yii', // adjust path to point to your ./yii script
         ],
     ],
@@ -56,13 +66,16 @@ By default access is restricted to local IPs. It could be changed via `allowedIP
 return [
     'modules' => [
         'webshell' => [
-            'class' => 'samdark\webshell\Module',
+            'class' => 'mallka\webshell\Module',
             // 'yiiScript' => Yii::getAlias('@root'). '/yii', // adjust path to point to your ./yii script
             'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.2'],
             'checkAccessCallback' => function (\yii\base\Action $action) {
                 // return true if access is granted or false otherwise
                 return true;
-            }
+            },
+            
+            //allow to run other commands,default is true,
+            'unlimit'=>false,
         ],
     ],
 
