@@ -76,6 +76,9 @@ return [
             
             //allow to run other commands,default is true,
             'unlimit'=>false,
+            
+            //unsupport command
+            'unsupportCommands'=>['top','ping'],
         ],
     ],
 
