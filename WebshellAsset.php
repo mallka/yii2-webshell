@@ -1,5 +1,5 @@
 <?php
-namespace samdark\webshell;
+namespace mallka\webshell;
 
 use yii\web\AssetBundle;
 
@@ -16,7 +16,7 @@ class WebshellAsset extends AssetBundle
     ];
 
     public $depends = [
-        'samdark\webshell\JqueryTerminalAsset',
+        'mallka\webshell\JqueryTerminalAsset',
     ];
 
 	public function init()

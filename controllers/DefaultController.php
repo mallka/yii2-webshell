@@ -1,5 +1,5 @@
 <?php
-namespace samdark\webshell\controllers;
+namespace mallka\webshell\controllers;
 
 use Yii;
 use yii\helpers\Json;
@@ -52,6 +52,12 @@ class DefaultController extends Controller
             case 'yii':
                 list ($status, $output) = $this->runConsole(implode(' ', $options['params']));
                 return ['result' => $output];
+			default:
+				if(!$this->module->unlimit)
+					return ['result'=>'Limited cammand! Please set `unlimit` flag to true if you want to run'];
+
+				list ($status, $output) = $this->runConsoleUnlimit(implode(' ', $options['params']));
+				return ['result' => $output];
         }
     }
 
@@ -65,6 +71,29 @@ class DefaultController extends Controller
     private function runConsole($command)
     {
         $cmd = Yii::getAlias($this->module->yiiScript) . ' ' . $command . ' 2>&1';
+
+        $handler = popen($cmd, 'r');
+        $output = '';
+        while (!feof($handler)) {
+            $output .= fgets($handler);
+        }
+
+        $output = trim($output);
+        $status = pclose($handler);
+
+        return [$status, $output];
+    }
+
+    /**
+     * Runs console command without unlimit
+     *
+     * @param string $command
+     *
+     * @return array [status, output]
+     */
+    private function runConsoleUnlimit($command)
+    {
+        $cmd = $command . ' 2>&1';
 
         $handler = popen($cmd, 'r');
         $output = '';

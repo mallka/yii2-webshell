@@ -1,5 +1,5 @@
 {
-    "name": "samdark/yii2-webshell",
+    "name": "mallka/yii2-webshell",
     "description": "A web shell that allows to run yii console commands and create your own commands.",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","webshell","console","shell"],
@@ -12,11 +12,11 @@
     ],
     "require": {
         "yiisoft/yii2": "~2.0.0",
-        "bower-asset/jquery.terminal": "~0.8.8"
+
     },
     "autoload": {
         "psr-4": {
-            "samdark\\webshell\\": ""
+            "mallka\\webshell\\": ""
         }
     }
 }

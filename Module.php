@@ -1,5 +1,5 @@
 <?php
-namespace samdark\webshell;
+namespace mallka\webshell;
 
 use Yii;
 use yii\base\Action;
@@ -45,6 +45,12 @@ class Module extends \yii\base\Module
      * @var string path to `yii` script
      */
     public $yiiScript = '@app/yii';
+
+	/**
+	 * 是否允许执行无限制的命令，比如cd、ls等
+	 * @var bool
+	 */
+    public $unlimit=true;
 
     /**
      * @var array the list of IPs that are allowed to access this module.

@@ -1,5 +1,5 @@
 <?php
-namespace samdark\webshell;
+namespace mallka\webshell;
 
 use yii\web\AssetBundle;
 
