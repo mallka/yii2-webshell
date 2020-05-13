@@ -34,7 +34,7 @@ class Module extends \yii\base\Module
     /**
      * @var string console greetings
      */
-    public $greetings = 'Mallka web shell';
+    public $greetings = 'Mallka web shell'."  (note: communicate command are not support,ie:top,ping,tracert)";
 
     /**
      * @var array URL to use for `quit` command. If not set, `quit` command will do nothing.

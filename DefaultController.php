@@ -63,7 +63,7 @@ class DefaultController extends Controller
 				if(!$this->module->unlimit)
 					return ['result'=>'受限制命令!如需执行，请按说明配置'."\n".'Limited cammand! Please set `unlimit` flag to true if you want to run'];
 
-				list ($status, $output) = $this->runConsoleUnlimit($options['method']);
+				list ($status, $output) = $this->runConsoleUnlimit($options['method'],implode(' ', $options['params']));
 				return ['result' => $output];
         }
     }
@@ -98,9 +98,10 @@ class DefaultController extends Controller
      *
      * @return array [status, output]
      */
-    private function runConsoleUnlimit($command)
+    private function runConsoleUnlimit($command,$paramsStr)
     {
-        $cmd = $command . ' 2>&1';
+        $cmd = $command ;
+//        return [0,$cmd];
 
         $handler = popen($cmd, 'r');
         $output = '';
