@@ -29,12 +29,12 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'samdark\webshell\controllers';
+    public $controllerNamespace = 'mallka\webshell\controllers';
 
     /**
      * @var string console greetings
      */
-    public $greetings = 'Yii 2.0 web shell';
+    public $greetings = 'Mallka web shell';
 
     /**
      * @var array URL to use for `quit` command. If not set, `quit` command will do nothing.
@@ -44,7 +44,7 @@ class Module extends \yii\base\Module
     /**
      * @var string path to `yii` script
      */
-    public $yiiScript = '@app/yii';
+    public $yiiScript = '@app';
 
 	/**
 	 * 是否允许执行无限制的命令，比如cd、ls等

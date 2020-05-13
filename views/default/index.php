@@ -4,7 +4,8 @@
 /** @var $greetings string */
 use yii\helpers\Url;
 
-\samdark\webshell\WebshellAsset::register($this);
+\mallka\webshell\WebshellAsset::register($this);
+\mallka\webshell\JqueryTerminalAsset::register($this);
 
 $endpoint = Url::toRoute(['default/rpc']);
 
@@ -41,8 +42,15 @@ jQuery(function($) {
                     scrollDown();
                 }
             } else {
-                term.echo('Unknown command.');
-                scrollDown();
+                
+                 $.jrpc('{$endpoint}', command, '', function(json) {
+                        term.echo(json.result);
+                        scrollDown();
+                    });
+                 
+                 
+                // term.echo('Unknown command.');
+                // scrollDown();
             }
         },
         {
